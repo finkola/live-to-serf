@@ -13,12 +13,13 @@ import {
 import { useLayoutEffect, useRef } from 'react';
 import farm from '../assets/farm.gltf?url';
 import peasant from '../assets/peasant.gltf?url';
+import sound from '../assets/live-to-ser.ogg?url';
 
 const createScene = (canvas: any) => {
   const engine = new Engine(canvas);
   const scene = new Scene(engine);
 
-  const camera = new FreeCamera('camera1', new Vector3(10, 40, 40), scene);
+  const camera = new FreeCamera('camera1', new Vector3(11, 40, 40), scene);
   camera.setTarget(Vector3.Zero());
   camera.attachControl(canvas, true);
 
@@ -82,6 +83,7 @@ export const SceneComponent = () => {
     if (!canvasRef.current) {
       return;
     }
+
     let timerId: number;
     //Frame-rate to draw sprites at
     const renderFps = 120;
